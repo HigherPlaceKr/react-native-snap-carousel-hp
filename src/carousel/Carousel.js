@@ -841,7 +841,8 @@ export default class Carousel extends Component {
         const { onTouchStart } = this.props
 
         // `onTouchStart` is fired even when `scrollEnabled` is set to `false`
-        if (this._getScrollEnabled() !== false && this._autoplaying) {
+        // if (this._getScrollEnabled() !== false && this._autoplaying) {
+        if (this._autoplaying) {
             this.pauseAutoPlay();
         }
 
@@ -853,7 +854,8 @@ export default class Carousel extends Component {
     _onTouchEnd () {
         const { onTouchEnd } = this.props
 
-        if (this._getScrollEnabled() !== false && this._autoplay && !this._autoplaying) {
+        //if (this._getScrollEnabled() !== false && this._autoplay && !this._autoplaying) {
+        if (this._autoplay && !this._autoplaying) {
             // This event is buggy on Android, so a fallback is provided in _onScrollEnd()
             this.startAutoplay();
         }
